@@ -1,0 +1,7 @@
+news_sites:
+	washingtonpost:
+		url: https://www.washingtonpost.com
+		queries:
+			homepage_article_links: '.headline a'
+			article_body: '.topper-headline h1'
+			article_title: 'article.paywall'
