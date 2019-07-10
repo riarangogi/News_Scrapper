@@ -19,4 +19,18 @@ class NewsPage:
 		self._html = bs4.BeautifulSoup(response.text, 'html.parser')
 
 
+class HomePage(NewsPage):
+	def __init__(self, news_site_uid, url):
+		super().__init__(news_site_uid, url)
+
+	@property
+	def article_links(self):
+		link_list = []
+		for link in self._select(self._queries['homepage_article_links']):
+			if link and link.has_attr('href'):
+				link_list.append(link)
+
+		return set(link['href'] for link in link_list)
+
+
 
