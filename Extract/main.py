@@ -47,20 +47,16 @@ def _save_articles(news_site_uid, articles):
 
 
 def _fetch_article(news_site_uid, host, link):
-    logger.info('Start fetching article at {}'.format(link))
-
-    article = None
-    try:
-        article = news.ArticlePage(news_site_uid, _build_link(host, link))
-    except (HTTPError, ConnectionError, MaxRetryError) as e:
-        logger.warning('Error while fechting the article', exc_info=False)
-
-
-    if article and not article.body:
-        logger.warning('Invalid article. There is no body')
-        return None
-
-    return article
+	logger.info('Start fetching article at {}'.format(link))
+	article = None
+	try:
+		article = news.ArticlePage(news_site_uid, _build_link(host, link))
+	except (HTTPError, ConnectionError, MaxRetryError) as e:
+		logger.warning('Error while fechting the article', exc_info=False)
+	if article and not article.body:
+		logger.warning('Invalid article. There is no body')
+		return None
+	return article
 
 
 def _build_link(host, link):
