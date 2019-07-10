@@ -60,12 +60,12 @@ def _fetch_article(news_site_uid, host, link):
 
 
 def _build_link(host, link):
-    if is_well_formed_link.match(link):
-        return link
-    elif is_root_path.match(link):
-        return '{}{}'.format(host, link)
-    else:
-        return '{host}/{uri}'.format(host=host, uri=link)
+	if is_well_formed_link.match(link):
+		return link
+	elif is_root_path.match(link):
+		return '{}{}'.format(host, link)
+	else:
+		return '{host}/{uri}'.format(host=host, uri=link)
 
 
 if __name__ == '__main__':
