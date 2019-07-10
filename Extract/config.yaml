@@ -1,25 +1,25 @@
 news_sites:
   washingtonpost:
-	url: https://www.washingtonpost.com
-	queries:
-	 homepage_article_links: '.headline a'
-	 article_body: '.topper-headline h1'
-	 article_title: 'article.paywall'
+    url: https://www.washingtonpost.com
+    queries:
+     homepage_article_links: '.headline a'
+     article_body: '.topper-headline h1'
+     article_title: 'article.paywall'
   elcolombiano:
-	url: https://www.elcolombiano.com/
-	queries:
-	 homepage_article_links: '.noticia-segundaria a'
-	 article_title: '.information-noticia h3'
-	 article_body: '.text'
+    url: https://www.elcolombiano.com/
+    queries:
+     homepage_article_links: '.noticia-segundaria a'
+     article_title: '.information-noticia h3'
+     article_body: '.text'
   eltiempo:
-	url: https://www.eltiempo.com/
-	queries:
-	 homepage_article_links: '.title-container a'
-	 article_title: '.titulo-principal-bk h1'
-	 article_body: '.modulos'
+    url: https://www.eltiempo.com/
+    queries:
+     homepage_article_links: '.title-container a'
+     article_title: '.titulo-principal-bk h1'
+     article_body: '.modulos'
   elespectador:
-	url: https://www.elespectador.com/noticias
-	queries:
-	 homepage_article_links: '.node-title a'
-	 article_title: '.node-title h1'
-	 article_body: '.node-body'
+    url: https://www.elespectador.com/noticias
+    queries:
+     homepage_article_links: '.node-title a'
+     article_title: '.node-title h1'
+     article_body: '.node-body'
