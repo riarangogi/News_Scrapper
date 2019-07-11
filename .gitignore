@@ -1,2 +1,3 @@
 Data/
 Extract/.*
+Extract/__pycache__
