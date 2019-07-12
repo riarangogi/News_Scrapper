@@ -71,3 +71,8 @@ def _remove_duplicate_entries(df, column_name):
 	logger.info('Removing duplicate entries')
 	df.drop_duplicates(subset=[column_name], keep='first', inplace=True)
 	return df
+
+
+def _drop_rows_with_missing_values(df):
+	logger.info('Dropping rows with missing values')
+	return df.dropna()
