@@ -67,3 +67,7 @@ def _remove_new_lines_from_body(df):
 	return df
 
 
+def _remove_duplicate_entries(df, column_name):
+	logger.info('Removing duplicate entries')
+	df.drop_duplicates(subset=[column_name], keep='first', inplace=True)
+	return df
