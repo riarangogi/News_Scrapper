@@ -25,3 +25,9 @@ def _add_newspaper_uid_column(df, newspaper_uid):
 	logger.info('Filling newspaper_uid column with {}'.format(newspaper_uid))
 	df['newspaper_uid'] = newspaper_uid
 	return df
+
+
+def _extract_host(df):
+	logger.info('Extracting host from urls')
+	df['host'] = df['url'].apply(lambda url: urlparse(url).netloc)
+	return df
