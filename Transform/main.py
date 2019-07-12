@@ -76,3 +76,10 @@ def _remove_duplicate_entries(df, column_name):
 def _drop_rows_with_missing_values(df):
 	logger.info('Dropping rows with missing values')
 	return df.dropna()
+
+
+def _save_data(df, filename):
+	in_path = '../Data/Tidy/'
+	tidy_filename = 'tidy_{}'.format(filename)
+	logger.info('Saving data at location: {}'.format(in_path + tidy_filename))
+	df.to_csv(in_path + tidy_filename)
