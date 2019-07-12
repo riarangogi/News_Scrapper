@@ -43,3 +43,13 @@ def _fill_missing_titles(df):
 						)
 	df.loc[missing_titles_mask, 'title'] = missing_titles.loc[:, 'missing_titles']
 	return df
+
+
+def _generate_uids_for_rows(df):
+	logger.info('Generating uids for each row')
+	uids = (df
+			.apply(lambda row: hashlib.md5(bytes(row['url'].encode())), axis=1)
+			.apply(lambda hash_object: hash_object.hexdigest())
+			)
+	df['uid'] = uids
+	return df.set_index('uid')
