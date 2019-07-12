@@ -83,3 +83,28 @@ def _save_data(df, filename):
 	tidy_filename = 'tidy_{}'.format(filename)
 	logger.info('Saving data at location: {}'.format(in_path + tidy_filename))
 	df.to_csv(in_path + tidy_filename)
+
+
+def main(filename):
+	logger.info('Starting cleaning process')
+	df = _read_data(filename)
+	newspaper_uid = _extract_newspaper_uid(filename)
+	df = _add_newspaper_uid_column(df, newspaper_uid)
+	df = _extract_host(df)
+	df = _fill_missing_titles(df)
+	df = _generate_uids_for_rows(df)
+	df = _remove_new_lines_from_body(df)
+	df = _remove_duplicate_entries(df, 'title')
+	df = _drop_rows_with_missing_values(df)
+	_save_data(df, filename)
+	return df
+
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	parser.add_argument('filename',
+						help='The path to the dirty data',
+						type=str)
+	args = parser.parse_args()
+	df = main(args.filename)
+
