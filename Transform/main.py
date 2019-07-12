@@ -82,7 +82,7 @@ def _save_data(df, filename):
 	in_path = '../Data/Tidy/'
 	tidy_filename = 'tidy_{}'.format(filename)
 	logger.info('Saving data at location: {}'.format(in_path + tidy_filename))
-	df.to_csv(in_path + tidy_filename)
+	df.to_csv(in_path + tidy_filename, index=False)
 
 
 def main(filename):
